@@ -19,8 +19,9 @@ This is because distutils (as a pure python, platform independant tool) doesn't 
 In other words, open the Terminal (``/Applications/Utitlities/Terminal.app``) and execute the following two commands::
 
     sudo easy_install twitsilver
-    cd Desktop
-    ./install-twitsilver-action.sh
+    install_twitsilver_action.py
+
+If this fails due to missing ``PATH`` entries, you need to find the ``install_twitsilver_action.py`` script and execute it. Due to the sandbox restrictions of distutils it can't be copied to a more convenient location.
 
 After that you need to restart Quicksilver (Command-Control-q) and you're good to go.
 

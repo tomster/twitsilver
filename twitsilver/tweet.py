@@ -11,7 +11,7 @@ import sys
 from Growl import GrowlNotifier
 from twitter import Twitter
 growl = GrowlNotifier('Tweeter', ['failure', 'success'], 'success')
-#growl.register()
+growl.register()
 
 from keychain import Keychain
 

@@ -9,6 +9,7 @@ Copyright (c) 2009 tomster.org. All rights reserved.
 
 import sys
 from Growl import GrowlNotifier
+from twitter import Twitter
 growl = GrowlNotifier('Tweeter', ['failure', 'success'], 'success')
 #growl.register()
 
@@ -16,6 +17,7 @@ from keychain import Keychain
 
 MAX_MSG = 140
 FALLBACK_KEY = 'twitter'
+AGENT_STR = "twittercommandlinetoolpy"
 
 def main(argv=None):
     if argv is None:
@@ -38,19 +40,22 @@ def main(argv=None):
 
     # get credentials:
     keychain = Keychain()
-    username, password = keychain.getgenericpassword('login', servicename='Twitterrific')
-    if not username:
-        username, password = keychain.getgenericpassword('login', item=FALLBACK_KEY)
-    if not username:
+    credentials = keychain.getgenericpassword('login', servicename='Twitterrific')
+    # getgenericpassword returns a tuple upon error but a dict on success, duh:
+    if type(credentials) == type(tuple):
+        # if Twitterific hasn't stored credentials, we try a generic key
+        credentials = keychain.getgenericpassword('login', item=FALLBACK_KEY)
+    if type(credentials) == type(tuple):
+        # notify the user about where to store credentials, if none are stored
         growl.notify("failure", "No credentials", 
-        "Please add username/password to your login keychain with the item name '%s'" % FALLBACK_KEY,
+        "Please add username/password to your login keychain with the item name '%s'" \
+        % FALLBACK_KEY,
         sticky=True)
         return
 
-    growl.notify("success", "You said", message)
 
 if __name__ == "__main__":
     try:
         sys.exit(main())
     except Exception, excp:
-        growl.notify("failure", "Uncaught exception", str(excp))
+        growl.notify("failure", "Oops!", excp.message, sticky=True)

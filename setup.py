@@ -30,5 +30,8 @@ setup(name='twitsilver',
     ],
     entry_points="""
     # -*- Entry points: -*-
+    [console_scripts]
+    tweet=twitsilver.tweet:main
     """,
     )
+

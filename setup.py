@@ -9,8 +9,8 @@ version = '0.1'
 setup(name='twitsilver',
     version=version,
     description="A Quicksilver client for twitter",
-    long_description="""\
-    """,
+    long_description=open("README.txt").read() + "\n" +
+        open(path.join("README.txt")).read(),
     classifiers=[
     "Development Status :: 3 - Alpha",
     "Environment :: MacOS X",

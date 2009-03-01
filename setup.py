@@ -1,10 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from os import path
 
 DEST_DIR = path.join(path.expanduser("~"), 
     "Desktop/")
 
-version = '0.1.1'
+version = '0.1'
 
 setup(name='twitsilver',
     version=version,
@@ -24,7 +24,7 @@ setup(name='twitsilver',
     author_email='tom@tomster.org',
     url='http://tomster.org/',
     license='BSD',
-    packages=['twitsilver', 'bin'],
+    packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,
     zip_safe=False,
     install_requires=[
@@ -33,7 +33,7 @@ setup(name='twitsilver',
       "twitter",
     ],
     data_files=[
-        (DEST_DIR, ['bin/install-twitsilver-action.sh',],),
+        (DEST_DIR, ['twitsilver/bin/install-twitsilver-action.sh',],),
     ],
     entry_points="""
     # -*- Entry points: -*-

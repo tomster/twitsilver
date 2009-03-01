@@ -4,7 +4,7 @@ from os import path
 DEST_DIR = path.join(path.expanduser("~"), 
     "Desktop/")
 
-version = '0.1'
+version = '0.1.2'
 
 setup(name='twitsilver',
     version=version,

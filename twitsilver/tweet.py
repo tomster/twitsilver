@@ -26,6 +26,8 @@ def main(argv=None):
         growl.notify("failure", "No message", "You need to actually say something!")
         return
     
+    # Check length
+    # TODO: use URL shortening service
     if len(message) > 140:
         growl.notify("failure", "Message too long", "%d characters, %d allowed." %
             (len(message), MAX_MSG))

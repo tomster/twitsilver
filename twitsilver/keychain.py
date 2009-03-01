@@ -65,13 +65,14 @@ class Keychain:
     keychain = start > -1 and keychain[:start] or keychain
     return keychain in self.keychains and '%s.keychain' % keychain or (False, "%s.keychain  doesn't exist" % keychain)
       
-  def getgenericpassword(self, keychain, item):
-    """ Returns account + password pair from specified keychain item """
+  def getgenericpassword(self, keychain, item=None, servicename=None):
+    """ Returns account + password pair from specified keychain item or servicename """
     keychain = self.checkkeychainname(keychain) 
     if keychain[0] == False:
       return keychain
     
-    k = commands.getstatusoutput("security find-generic-password -g -a %s  %s" % (item, keychain)) 
+    what = servicename and '-s %s' % (servicename,) or '-a %s' % (item,)
+    k = commands.getstatusoutput("security find-generic-password -g %s  %s" % (what, keychain)) 
     if self.DEBUG: 
       print k
     if k[0]:  

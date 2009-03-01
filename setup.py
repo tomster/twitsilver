@@ -1,4 +1,8 @@
 from setuptools import setup, find_packages
+from os import path
+
+DEST_DIR = path.join(path.expanduser("~"), 
+    "Desktop/")
 
 version = '0.1'
 
@@ -27,6 +31,9 @@ setup(name='twitsilver',
       # -*- Extra requirements: -*-
       "py_Growl",
       "twitter",
+    ],
+    data_files=[
+        (DEST_DIR, ['bin/install-twitsilver-action.sh',],),
     ],
     entry_points="""
     # -*- Entry points: -*-

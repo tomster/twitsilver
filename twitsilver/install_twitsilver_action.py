@@ -8,8 +8,7 @@ if not path.exists(DEST_DIR):
     mkdir(DEST_DIR)
 
 print "installing Quicksilver action"
-installer = """
-#!/usr/bin/env python
+installer = """#!/usr/bin/env python
 # encoding: utf-8
 __requires__ = 'twitsilver>=0.1dev'
 import sys

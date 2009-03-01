@@ -4,7 +4,7 @@ from os import path
 DEST_DIR = path.join(path.expanduser("~"), 
     "Desktop/")
 
-version = '0.1.4'
+version = '0.1.8'
 
 setup(name='twitsilver',
     version=version,
@@ -32,13 +32,11 @@ setup(name='twitsilver',
       "py_Growl",
       "twitter",
     ],
-    data_files=[
-        (DEST_DIR, ['twitsilver/install-twitsilver-action.py',],),
-    ],
     entry_points="""
     # -*- Entry points: -*-
     [console_scripts]
     tweet=twitsilver.tweet:main
+    install_twitsilver_action=twitsilver.install_twitsilver_action
     """,
     )
 

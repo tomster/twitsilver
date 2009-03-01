@@ -4,13 +4,12 @@ from os import path
 DEST_DIR = path.join(path.expanduser("~"), 
     "Desktop/")
 
-version = '0.1.11'
+version = '0.1.12'
 
 setup(name='twitsilver',
     version=version,
     description="A Quicksilver client for twitter",
-    long_description=open("README.txt").read() + "\n" +
-        open(path.join("README.txt")).read(),
+    long_description=open("README.txt").read(),
     classifiers=[
     "Development Status :: 3 - Alpha",
     "Environment :: MacOS X",

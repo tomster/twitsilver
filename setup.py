@@ -4,7 +4,7 @@ from os import path
 DEST_DIR = path.join(path.expanduser("~"), 
     "Desktop/")
 
-version = '0.1.10'
+version = '0.1.11'
 
 setup(name='twitsilver',
     version=version,
@@ -36,7 +36,7 @@ setup(name='twitsilver',
     # -*- Entry points: -*-
     [console_scripts]
     tweet=twitsilver.tweet:main
-    install_twitsilver_action=twitsilver.install_twitsilver_action
+    install_twitsilver_action=twitsilver.install_twitsilver_action:main
     """,
     )
 

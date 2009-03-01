@@ -53,6 +53,11 @@ def main(argv=None):
         sticky=True)
         return
 
+    # post the message
+    twit = Twitter(credentials['account'], credentials['password'], agent=AGENT_STR)
+    message = (message.encode('utf8', 'replace'))
+    twit.statuses.update(status=message)
+    growl.notify("success", "Tweet sent.", message)
 
 if __name__ == "__main__":
     try:

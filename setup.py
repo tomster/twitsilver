@@ -1,10 +1,10 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 from os import path
 
 DEST_DIR = path.join(path.expanduser("~"), 
     "Desktop/")
 
-version = '0.1'
+version = '0.1.1'
 
 setup(name='twitsilver',
     version=version,
@@ -24,7 +24,7 @@ setup(name='twitsilver',
     author_email='tom@tomster.org',
     url='http://tomster.org/',
     license='BSD',
-    packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
+    packages=['twitsilver', 'bin'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[

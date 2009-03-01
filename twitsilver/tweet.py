@@ -10,10 +10,10 @@ Copyright (c) 2009 tomster.org. All rights reserved.
 import sys
 from Growl import GrowlNotifier
 from twitter import Twitter
-growl = GrowlNotifier('Tweeter', ['failure', 'success'], 'success')
-growl.register()
-
 from keychain import Keychain
+
+growl = GrowlNotifier('Tweeter', ['failure', 'success'], 'success')
+growl.register() # TODO: do this once upon installation
 
 MAX_MSG = 140
 FALLBACK_KEY = 'twitter'

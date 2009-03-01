@@ -10,7 +10,7 @@ if not path.exists(DEST_DIR):
 print "installing Quicksilver action"
 installer = """#!/usr/bin/env python
 # encoding: utf-8
-__requires__ = 'twitsilver>=0.1dev'
+__requires__ = 'twitsilver'
 import sys
 from pkg_resources import load_entry_point
 

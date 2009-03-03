@@ -2,8 +2,10 @@
 from os import path, mkdir, chmod
 import sys
 
-def main(argv=None):
-    DEST_DIR = path.join(path.expanduser("~"), "Library/Application Support/Quicksilver/Actions")
+def install_action():
+    """ Installs the Quicksilver action """
+    DEST_DIR = path.join(path.expanduser("~"), 
+        "Library/Application Support/Quicksilver/Actions")
 
     if not path.exists(DEST_DIR):
         print "creating target directory!" ; 
@@ -25,6 +27,9 @@ sys.exit(
     installer_script.close()
     chmod(DEST_DIR + "/tweet.py", 0775)
     print "Done! Now restart Quicksilver (command-control-q)"
+
+def main(argv=None):
+    install_action()
 
 if __name__ == "__main__":
     sys.exit(main())

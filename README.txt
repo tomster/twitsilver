@@ -14,14 +14,18 @@ Twitsilver installation is a two step process:
 1. ``easy_install`` the code
 2. custom install the Quicksilver action
 
-This is because distutils (as a pure python, platform independant tool) doesn't know anything about Quicksilver actions. Therefore we create a quicksilver-aware installer on the Desktop for you.
+This is because distutils (as a pure python, platform independant tool) doesn't know anything about Quicksilver actions. Therefore we create a quicksilver-aware installer for you. However, since distutils is also heavily sandboxed, this installer can only be created inside the given ``site-pacakges``.
 
 In other words, open the Terminal (``/Applications/Utitlities/Terminal.app``) and execute the following two commands::
 
     sudo easy_install twitsilver
     install_twitsilver_action.py
 
-If this fails due to missing ``PATH`` entries, you need to find the ``install_twitsilver_action.py`` script and execute it. Due to the sandbox restrictions of distutils it can't be copied to a more convenient location.
+If this fails due to missing ``PATH`` entries, you need to find the ``install_twitsilver_action.py`` script and execute it. As mentioned above, due to the sandbox restrictions of distutils it can't be copied to a more convenient location.
+
+Places to look for include::
+
+    /Library/Python/2.5/site-packages/
 
 After that you need to restart Quicksilver (Command-Control-q) and you're good to go.
 

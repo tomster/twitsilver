@@ -4,7 +4,7 @@ from os import path
 DEST_DIR = path.join(path.expanduser("~"), 
     "Desktop/")
 
-version = '0.2'
+version = '0.2b1'
 
 setup(name='twitsilver',
     version=version,
@@ -21,7 +21,7 @@ setup(name='twitsilver',
     keywords='Quicksilver twitter OSX',
     author='Tom Lazar',
     author_email='tom@tomster.org',
-    url='http://tomster.org/',
+    url='http://github.com/tomster/twitsilver/',
     license='BSD',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
     include_package_data=True,

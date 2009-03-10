@@ -19,9 +19,19 @@ This is because distutils (as a pure python, platform independant tool) doesn't 
 In other words, open the Terminal (``/Applications/Utitlities/Terminal.app``) and execute the following two commands::
 
     sudo easy_install twitsilver
-    install_twitsilver_action
+    install_twitsilver
 
-If this fails due to missing ``PATH`` entries, you need to find the ``install_twitsilver_action`` script and execute it. As mentioned above, due to the sandbox restrictions of distutils it can't be copied to a more convenient location.
+If this fails due to missing ``PATH`` entries, you need to find the ``install_twitsilver`` script and execute it. As mentioned above, due to the sandbox restrictions of distutils it can't be copied to a more convenient location.
+
+The installer will create a Quicksilver action and register twitsilver with growl. Unfortunately, the python bindings for Growl don't provide a way to actually enable the notifications it registrs. This means, you need to:
+
+* open the *System Preferences* control panel
+* select *Growl*
+* click the *Applications* tab
+* select *Twitsilver* from the list
+* click *Configure...*
+* click *Notifications*
+* select *failure* and *success* and for each click on *enabled*
 
 After that you need to restart Quicksilver (Command-Control-q) and you're good to go.
 

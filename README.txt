@@ -23,7 +23,7 @@ In other words, open the Terminal (``/Applications/Utitlities/Terminal.app``) an
 
 If this fails due to missing ``PATH`` entries, you need to find the ``install_twitsilver`` script and execute it. As mentioned above, due to the sandbox restrictions of distutils it can't be copied to a more convenient location.
 
-The installer will create a Quicksilver action and register twitsilver with growl. Unfortunately, the python bindings for Growl don't provide a way to actually enable the notifications it registrs. This means, you need to:
+The installer will create a Quicksilver action and register twitsilver with growl. Unfortunately, the python bindings for Growl don't provide a way to actually enable the notifications it registers. This means, you need to:
 
 * open the *System Preferences* control panel
 * select *Growl*
@@ -59,7 +59,6 @@ Of course, twitsilver checks the length of your message and will refuse to post 
 TODO
 ====
 
-* Currently twitsilver registers itself with Growl for *every* call. Ideally, this should be done only once, upon installation
 * use an URL shortening service to shorten any URLs *before* posting to twitter.
 * add a nicer icon (for growl)
 * twitsilver has no pony. This is unacceptable in the long run

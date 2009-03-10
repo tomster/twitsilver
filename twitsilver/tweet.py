@@ -8,12 +8,11 @@ Copyright (c) 2009 tomster.org. All rights reserved.
 """
 
 import sys
-from Growl import GrowlNotifier
+from growl import twitsilver_growl
 from twitter import Twitter
 from keychain import Keychain
 
-growl = GrowlNotifier('Tweeter', ['failure', 'success'], 'success')
-growl.register() # TODO: do this once upon installation
+growl = twitsilver_growl()
 
 MAX_MSG = 140
 FALLBACK_KEY = 'twitter'
@@ -40,11 +39,11 @@ def main(argv=None):
 
     # get credentials:
     keychain = Keychain()
-    credentials = keychain.getgenericpassword('login', servicename='Twitterrific')
+    credentials = keychain.get_generic_password('login', servicename='Twitterrific')
     # getgenericpassword returns a tuple upon error but a dict on success, duh:
     if type(credentials) == type(tuple):
         # if Twitterific hasn't stored credentials, we try a generic key
-        credentials = keychain.getgenericpassword('login', item=FALLBACK_KEY)
+        credentials = keychain.get_generic_password('login', item=FALLBACK_KEY)
     if type(credentials) == type(tuple):
         # notify the user about where to store credentials, if none are stored
         growl.notify("failure", "No credentials", 

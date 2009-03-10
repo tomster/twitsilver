@@ -35,7 +35,7 @@ setup(name='twitsilver',
     # -*- Entry points: -*-
     [console_scripts]
     tweet=twitsilver.tweet:main
-    install_twitsilver_action=twitsilver.install:install_action
+    install_twitsilver=twitsilver.install:main
     """,
     )
 
